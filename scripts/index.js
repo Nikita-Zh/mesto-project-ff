@@ -3,17 +3,20 @@ const listCards = document.querySelector(".places__list");
 
 const createCard = ({ name, link }, deleteCard) => {
   const card = cardTemplate.querySelector(".card").cloneNode(true);
-  card.querySelector(".card__image").src = link;
+  const cardImage = card.querySelector(".card__image");
+
   card.querySelector(".card__title").textContent = name;
+  cardImage.src = link;
+  cardImage.alt = name;
   card
     .querySelector(".card__delete-button")
-    .addEventListener("click", (e) => deleteCard(e.target));
+    .addEventListener("click", () => deleteCard(card));
 
   return card;
 };
 
-const deleteCard = (cardDeleteButton) => {
-  cardDeleteButton.closest(".card").remove();
+const deleteCard = (card) => {
+  card.remove();
 };
 
 const placeCard = (card) => {
