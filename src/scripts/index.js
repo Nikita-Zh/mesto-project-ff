@@ -1,3 +1,6 @@
+import "../pages/index.css";
+import { initialCards } from "./cards.js";
+
 const cardTemplate = document.querySelector("#card-template").content;
 const listCards = document.querySelector(".places__list");
 
@@ -27,3 +30,4 @@ initialCards.forEach((item) => {
   const card = createCard(item, deleteCard);
   placeCard(card);
 });
+
