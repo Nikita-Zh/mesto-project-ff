@@ -1,12 +1,3 @@
-export const setModalFormElements = (modal, formElements) => {
-  formElements?.length && (modal.formElements = formElements);
-};
-
-export const resetModalFormElements = (modal) => {
-  modal.formElements?.length &&
-    modal.formElements.forEach((form) => form.reset());
-};
-
 const handleEsc = (evt) => {
   if (evt.key === "Escape") {
     const activeModal = document.querySelector(".popup_is-opened");
@@ -22,7 +13,6 @@ export const openModal = (modal) => {
 export const closeModal = (modal) => {
   modal.classList.remove("popup_is-opened");
   document.removeEventListener("keyup", handleEsc);
-  resetModalFormElements(modal);
 };
 
 export const closeModalWithEventListeners = (modal) => {
